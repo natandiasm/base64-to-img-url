@@ -4,7 +4,23 @@
     <title>Image</title>
   </header>
   <body>
-    <h1></h1>
     <p>I'm hosted with GitHub Pages.</p>
+    <div>
+      <p>Taken from wikpedia</p>
+      <img id='image' src="data:image/png;base64," alt="" />
+    </div>
+    <script>
+      function getUrlVars() {
+          var vars = {};
+          var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
+              vars[key] = value;
+          });
+          return vars;
+      }
+          
+      let image = document.getElementById('image');
+      
+      image.setAttribute('src', `data:image/png;base64, {getUrlVars()["img"]}`);
+    </script>
   </body>
 </html>
